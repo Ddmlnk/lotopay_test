@@ -1,0 +1,167 @@
+/* ===== CONTACTS ===== */
+
+.contacts-section {
+  background: linear-gradient(135deg, #1a1a1a 60%, #2a1a1a 100%);
+
+  padding: 40px 20px;
+}
+
+.contacts-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.contacts-subtitle {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.contacts-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* FORM */
+.contacts-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: var(--color-bg-table);
+  color: var(--color-text);
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 14px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.form-group textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 4px;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #e0002b;
+}
+
+/* MAP */
+.contacts-map {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.map-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.contacts-map iframe {
+  width: 100%;
+  height: 260px;
+  border-radius: 8px;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .contacts-section {
+    padding: 60px 32px;
+  }
+
+  .form-row {
+    flex-direction: row;
+  }
+
+  .form-row .form-group {
+    flex: 1;
+  }
+
+  .contacts-title {
+    font-size: 28px;
+  }
+
+  .contacts-map iframe {
+    height: 320px;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .contacts-section {
+    padding: 80px 40px;
+  }
+
+  .contacts-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+  }
+
+  .contacts-form {
+    flex: 1;
+  }
+
+  .contacts-map {
+    flex: 1;
+  }
+
+  .contacts-map iframe {
+    height: 360px;
+  }
+
+  .contacts-title {
+    font-size: 32px;
+  }
+}
+
+/* WIDE */
+@media (min-width: 1280px) {
+  .contacts-section {
+    padding: 80px calc((100% - 1200px) / 2);
+  }
+}
