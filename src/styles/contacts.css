@@ -1,8 +1,9 @@
 /* ===== CONTACTS ===== */
-
+#contacts {
+  scroll-margin-top: 40px;
+}
 .contacts-section {
   background: linear-gradient(135deg, #220101, #01011f);
-
   padding: 40px 20px;
 }
 

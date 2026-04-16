@@ -8,18 +8,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Плавність */
   transition: opacity 250ms linear;
 }
 
-/* Стан, коли попап ЗАХОВАНИЙ */
 .popup-overlay.is-hidden {
   opacity: 0;
-  pointer-events: none; /* Щоб не можна було клікнути крізь невидиме вікно */
+  pointer-events: none;
 }
 
-/* Стан, коли попап ВИДИМИЙ (класу is-hidden немає) */
 .popup-overlay {
   opacity: 1;
   pointer-events: auto;
@@ -40,9 +36,10 @@
   right: 16px;
   font-size: 18px;
   color: #aaaaaa;
-  transition: all 0.3s ease;
+  transition: color 250ms linear;
 }
-.popup-close:hover {
+.popup-close:hover,
+.popup-close:focus {
   color: #ffffff;
 }
 
@@ -67,10 +64,11 @@
   margin-top: 12px;
   padding: 12px 28px;
   border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: background-color 250ms linear;
 }
 
-.popup-btn:hover {
+.popup-btn:hover,
+.popup-btn:focus {
   background-color: #e0002b;
 }
 

@@ -1,5 +1,7 @@
 /* ===== HISTORY ===== */
-
+#about {
+  scroll-margin-top: 40px;
+}
 .history-section {
   background: linear-gradient(135deg, #01011f, #220101);
   padding: 40px 20px;

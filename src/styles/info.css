@@ -1,5 +1,7 @@
 /* ===== INFO ===== */
-
+#concerts {
+  scroll-margin-top: 40px;
+}
 .info-section {
   background-color: var(--color-bg);
   padding: 40px 20px;
@@ -62,6 +64,9 @@ tbody tr:last-child td {
 }
 
 /* BAND */
+#gallery {
+  scroll-margin-top: 100px;
+}
 .band-details {
   padding: 20px 0;
 }

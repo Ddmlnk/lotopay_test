@@ -28,22 +28,18 @@ form.addEventListener("submit", function (e) {
 const overlay = document.getElementById("popupOverlay");
 const ticketForm = document.getElementById("ticketForm");
 const popupClose = document.getElementById("popupClose");
-const closeSuccess = document.getElementById("closeSuccess");
 
-// Функція відкриття
 function openPopup() {
   overlay.classList.remove("is-hidden");
-  ticketForm.classList.remove("is-hidden"); // Показуємо форму
+  ticketForm.classList.remove("is-hidden");
   document.body.style.overflow = "hidden";
 }
 
-// Функція закриття
 function closePopup() {
   overlay.classList.add("is-hidden");
   document.body.style.overflow = "auto";
 }
 
-// 1. Відкриття по кліку на кнопки (делегація подій)
 document.addEventListener("click", (e) => {
   if (
     e.target.classList.contains("ticket-btn") ||
@@ -54,11 +50,9 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// 2. Обробка відправки форми (GET-запит)
 ticketForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  // Збираємо дані для GET запиту
   const formData = new FormData(ticketForm);
   const userParams = new URLSearchParams(formData).toString();
 
@@ -68,7 +62,8 @@ ticketForm.addEventListener("submit", (e) => {
     .then((response) => {
       if (response.ok) {
         alert("Дані успішно відправлено!");
-        form.reset();
+        ticketForm.reset();
+        closePopup();
       } else {
         alert("Помилка сервера");
       }
@@ -77,11 +72,8 @@ ticketForm.addEventListener("submit", (e) => {
       console.error("Помилка:", error);
       alert("Не вдалося з’єднатися з сервером");
     });
-
-  ticketForm.reset();
 });
 
-// 3. Усі варіанти закриття
 popupClose.addEventListener("click", closePopup);
 
 overlay.addEventListener("click", (e) => {
