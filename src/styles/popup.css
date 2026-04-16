@@ -1,0 +1,92 @@
+/* ===== POPUP ===== */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Плавність */
+  transition: opacity 250ms linear;
+}
+
+/* Стан, коли попап ЗАХОВАНИЙ */
+.popup-overlay.is-hidden {
+  opacity: 0;
+  pointer-events: none; /* Щоб не можна було клікнути крізь невидиме вікно */
+}
+
+/* Стан, коли попап ВИДИМИЙ (класу is-hidden немає) */
+.popup-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup {
+  background: #222222;
+  border-radius: 8px;
+  padding: 32px 16px;
+  width: 90%;
+  max-width: 480px;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 18px;
+  color: #aaaaaa;
+  transition: all 0.3s ease;
+}
+.popup-close:hover {
+  color: #ffffff;
+}
+
+.popup-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.popup-subtitle {
+  font-size: 14px;
+  color: #aaaaaa;
+  margin-bottom: 8px;
+}
+
+.popup-btn {
+  background-color: #ff2d55;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 12px;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.popup-btn:hover {
+  background-color: #e0002b;
+}
+
+@media (min-width: 768px) {
+  .popup {
+    padding: 32px 32px;
+  }
+  .popup-title {
+    font-size: 36px;
+  }
+
+  .popup-text {
+    font-size: 16px;
+  }
+  .popup-button {
+    font-size: 14px;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,36 @@
+<div class="popup-overlay is-hidden" id="popupOverlay">
+  <div class="popup">
+    <button class="popup-close" id="popupClose">✕</button>
+
+    <div class="popup-content" id="popupContent">
+      <form class="contacts-form" id="ticketForm">
+        <h3 class="popup-title">Замовити квиток</h3>
+        <p class="popup-subtitle">Заповніть форму і ми зв’яжемось з вами</p>
+
+        <div class="form-group">
+          <label>Ім’я</label>
+          <input
+            type="text"
+            name="userName"
+            pattern="^[a-zA-Zа-яА-ЯіїєґІЇЄҐ' ]+$"
+            placeholder="Ваше ім’я"
+            minlength="2"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            name="userEmail"
+            placeholder="your@email.com"
+            required
+          />
+        </div>
+
+        <button type="submit" class="popup-btn">Відправити</button>
+      </form>
+    </div>
+  </div>
+</div>

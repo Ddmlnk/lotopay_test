@@ -1,60 +1,93 @@
-import './style.css'
-import javascriptLogo from './assets/javascript.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import { setupCounter } from './counter.js'
+const form = document.querySelector(".contacts-form");
 
-document.querySelector('#app').innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${javascriptLogo}" class="framework" alt="JavaScript logo"/>
-    <img src=${viteLogo} class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.js</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-<div class="ticks"></div>
+  const formData = new FormData(form);
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src=${viteLogo} alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-          <img class="button-icon" src="${javascriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
+  const searchParams = new URLSearchParams(formData).toString();
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
+  fetch(`https://api.test.com/send?${searchParams}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      if (response.ok) {
+        alert("Дані успішно відправлено!");
+        form.reset();
+      } else {
+        alert("Помилка сервера");
+      }
+    })
+    .catch((error) => {
+      console.error("Помилка:", error);
+      alert("Не вдалося з’єднатися з сервером");
+    });
+});
 
-setupCounter(document.querySelector('#counter'))
+// ====================================
+const overlay = document.getElementById("popupOverlay");
+const ticketForm = document.getElementById("ticketForm");
+const popupClose = document.getElementById("popupClose");
+const closeSuccess = document.getElementById("closeSuccess");
+
+// Функція відкриття
+function openPopup() {
+  overlay.classList.remove("is-hidden");
+  ticketForm.classList.remove("is-hidden"); // Показуємо форму
+  document.body.style.overflow = "hidden";
+}
+
+// Функція закриття
+function closePopup() {
+  overlay.classList.add("is-hidden");
+  document.body.style.overflow = "auto";
+}
+
+// 1. Відкриття по кліку на кнопки (делегація подій)
+document.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("ticket-btn") ||
+    e.target.classList.contains("hero-button")
+  ) {
+    console.log("click");
+    openPopup();
+  }
+});
+
+// 2. Обробка відправки форми (GET-запит)
+ticketForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // Збираємо дані для GET запиту
+  const formData = new FormData(ticketForm);
+  const userParams = new URLSearchParams(formData).toString();
+
+  fetch(`https://api.test.com/send?${userParams}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      if (response.ok) {
+        alert("Дані успішно відправлено!");
+        form.reset();
+      } else {
+        alert("Помилка сервера");
+      }
+    })
+    .catch((error) => {
+      console.error("Помилка:", error);
+      alert("Не вдалося з’єднатися з сервером");
+    });
+
+  ticketForm.reset();
+});
+
+// 3. Усі варіанти закриття
+popupClose.addEventListener("click", closePopup);
+
+overlay.addEventListener("click", (e) => {
+  if (e.target === overlay) closePopup();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closePopup();
+});
