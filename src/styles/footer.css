@@ -32,10 +32,11 @@ footer {
 
 .footer-contacts a {
   color: var(--color-text-muted);
-  transition: all 0.3s ease;
+  transition: color 250ms linear;
 }
 
-.footer-contacts a:hover {
+.footer-contacts a:hover,
+.footer-contacts a:focus {
   color: var(--color-text);
 }
 
@@ -75,12 +76,5 @@ footer {
 
   .footer-right {
     align-items: flex-start;
-  }
-}
-
-/* WIDE */
-@media (min-width: 1280px) {
-  footer {
-    padding: 32px calc((100% - 1200px) / 2);
   }
 }

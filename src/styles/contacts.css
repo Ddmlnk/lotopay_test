@@ -1,7 +1,7 @@
 /* ===== CONTACTS ===== */
 
 .contacts-section {
-  background: linear-gradient(135deg, #1a1a1a 60%, #2a1a1a 100%);
+  background: linear-gradient(135deg, #220101, #01011f);
 
   padding: 40px 20px;
 }
@@ -81,11 +81,12 @@
   padding: 12px 28px;
   border-radius: 4px;
   align-self: flex-start;
-  transition: all 0.3s ease;
+  transition: background-color 250ms ease;
 }
 
-.submit-btn:hover {
-  background-color: #e0002b;
+.submit-btn:hover,
+.submit-btn:focus {
+  background-color: #91001d;
 }
 
 /* MAP */
@@ -110,7 +111,7 @@
 /* TABLET */
 @media (min-width: 768px) {
   .contacts-section {
-    padding: 60px 32px;
+    padding: 60px 64px;
   }
 
   .form-row {
@@ -133,7 +134,7 @@
 /* DESKTOP */
 @media (min-width: 1024px) {
   .contacts-section {
-    padding: 80px 40px;
+    padding: 80px 84px;
   }
 
   .contacts-content {
@@ -156,12 +157,5 @@
 
   .contacts-title {
     font-size: 32px;
-  }
-}
-
-/* WIDE */
-@media (min-width: 1280px) {
-  .contacts-section {
-    padding: 80px calc((100% - 1200px) / 2);
   }
 }

@@ -5,7 +5,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 60px 20px;
+  padding: 144px 20px;
   position: relative;
 }
 
@@ -48,44 +48,46 @@
 
 .hero-button {
   margin-top: 8px;
-  padding: 14px 28px;
+  padding: 8px 14px;
   background-color: #f5c518;
   color: #000;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
   border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: background-color 250ms ease;
 }
 
-.hero-button:hover {
-  background-color: #e6b800;
+.hero-button:hover,
+.hero-button:focus {
+  background-color: #e68600;
 }
 
 /* TABLET */
 @media (min-width: 768px) {
   .hero-section {
-    padding: 80px 32px;
+    padding: 144px 64px;
   }
 
   .hero-title {
     font-size: 36px;
   }
 
-  .hero-subtitle {
+  .hero-text {
     font-size: 16px;
   }
-
-  .hero-text {
-    font-size: 15px;
+  .hero-button {
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 700;
   }
 }
 
 /* DESKTOP */
 @media (min-width: 1024px) {
   .hero-section {
-    padding: 100px 40px;
+    padding: 124px 84px;
   }
 
   .hero-title {
@@ -100,12 +102,5 @@
 
   .hero-text {
     font-size: 16px;
-  }
-}
-
-/* WIDE */
-@media (min-width: 1280px) {
-  .hero-section {
-    padding: 120px calc((100% - 1200px) / 2);
   }
 }
